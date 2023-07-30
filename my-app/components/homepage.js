@@ -13,7 +13,9 @@ const HomeScreen = ({ navigation }) => {
 
       <ScrollView style={styles.content}>
         <View>
-          <Image source={pic} style={[styles.item, {width: 193, height: 110, marginTop: 50}]} />
+          <TouchableOpacity onPress={() => navigation.navigate('Information')}>
+            <Image source={pic} style={[styles.item, {width: 193, height: 110, marginTop: 50}]} />
+          </TouchableOpacity>
           <Text style={styles.item}>dtfyghjkljghnfg</Text>
           <Text style={styles.item}>dtfyghjkljghnfg</Text>
           <Text style={styles.item}>dtfyghjkljghnfg</Text>
@@ -24,19 +26,18 @@ const HomeScreen = ({ navigation }) => {
 
       <View style={styles.footer}>
         <TouchableOpacity onPress={() => navigation.navigate('Likes')}>
-          <Image
-            source={require('../assets/hearts-icons-vectors-illustrations.jpg')}
-            style={styles.icon}
-          />
+          <Image source={require('../assets/hearts-icons-vectors-illustrations.jpg')} style={styles.icon} />
+          <Text style={styles.footerText}>Your likes</Text>
         </TouchableOpacity>
 
-        <Image source={require('../assets/house-icon-vector-illustration.jpg')} style={styles.icon} />
+        <View>
+          <Image source={require('../assets/house-icon-vector-illustration.jpg')} style={styles.icon} />
+          <Text style={styles.footerText}>Home</Text>
+        </View>
 
         <TouchableOpacity onPress={() => navigation.navigate('Basket')}>
-          <Image
-            source={require('../assets/basket-icon.jpg')}
-            style={styles.icon}
-          />
+          <Image source={require('../assets/basket-icon.jpg')} style={styles.icon} />
+          <Text style={styles.footerText}>Your Basket</Text>
         </TouchableOpacity>
       
       </View>
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   },
   item: {
     margin: 20,
-    flexBasis: '82%',
+    flexBasis: '80%',
     aspectRatio: 1,
     backgroundColor: '#ffffff',
   },
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   footerText: {
+    alignContent: 'center',
     fontSize: 14,
     color: '#999999',
   },

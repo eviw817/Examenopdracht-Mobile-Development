@@ -5,7 +5,7 @@ const BasketScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
         <View style={styles.header}>
-            <Text style={styles.title}>Welcome to the Basket!</Text>
+            <Text style={styles.title}>Your Basket</Text>
         </View>
 
         <ScrollView style={styles.content}>

@@ -3,9 +3,9 @@ import { ScrollView, View, TouchableOpacity, Image, Text, StyleSheet } from 'rea
 
 const LikesScreen = ({ navigation }) => {
   return (
-    <View>
+    <View style={styles.container}>
         <View style={styles.header}>
-            <Text>Welcome to the Likes!</Text>
+            <Text style={styles.title}>Your likes</Text>
         </View>
 
         <ScrollView style={styles.content}>
