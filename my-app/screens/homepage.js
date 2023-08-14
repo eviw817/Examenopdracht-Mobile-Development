@@ -11,9 +11,8 @@ const HomeScreen = ({ navigation }) => {
 
   const getFoodDetailsById = async () => {
     try {
-      const options = {
+      const response = await fetch("https://tasty.p.rapidapi.com/recipes/list",{
         method: 'GET',
-        url: 'https://tasty.p.rapidapi.com/recipes/list',
         params: {
           from: '0',
           size: '20',
@@ -23,7 +22,7 @@ const HomeScreen = ({ navigation }) => {
           'X-RapidAPI-Key': 'fcce567a70msh557de0fc66a928bp164285jsnf151d9ccfc7b',
           'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
         }
-      };
+      })
       const json = await response.json();
       console.log(json);
       setFood(json.results);

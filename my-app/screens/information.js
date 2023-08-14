@@ -1,21 +1,18 @@
 import React from 'react';
 import { ScrollView, View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
 
+import FoodDetails from '../components/foodDetails';
+
 const LikesScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-        <View style={styles.header}>
-            <Text style={styles.title}>Name</Text>
-        </View>
-
-        <ScrollView style={styles.content}>
-            <View>
-                <Text style={styles.item}>dtfyghjkljghnfg</Text>
-            </View>
-        </ScrollView>
+    <View style={styles.screen}>
+      <MovieDetails movieId={movieId} />
+      <Button
+        title="Go to Movies"
+        onPress={() => navigation.navigate('Movies')}
+      />
     </View>
-  );
-};
+  )
 
 const styles = StyleSheet.create({
     container: {
@@ -66,5 +63,5 @@ const styles = StyleSheet.create({
   });
   
 
-export default LikesScreen;
+export default InformationScreen;
 
