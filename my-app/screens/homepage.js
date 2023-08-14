@@ -1,15 +1,72 @@
-import React from 'react';
-import { ScrollView, View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
+import React, { useState, useEffect} from 'react';
+import { ScrollView, View, TouchableOpacity, Image, Text, TextInput, FlatList, StyleSheet } from 'react-native';
+
+import apiKey from '../apiKey';
+import foodItems from '../components/foodItems';
+import foodDetails from '../components/foodDetails';
 
 const HomeScreen = ({ navigation }) => {
+
+  const [food, setFood] = useState([]);
+
+  const getFoodDetailsById = async () => {
+    try {
+      const options = {
+        method: 'GET',
+        url: 'https://tasty.p.rapidapi.com/recipes/list',
+        params: {
+          from: '0',
+          size: '20',
+          tags: 'under_30_minutes'
+        },
+        headers: {
+          'X-RapidAPI-Key': 'fcce567a70msh557de0fc66a928bp164285jsnf151d9ccfc7b',
+          'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+        }
+      };
+      const json = await response.json();
+      console.log(json);
+      setFood(json.results);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getFoodDetailsById();//laad upcomming foods wanneer het scherm laadt
+  }, []);
+
   let pic = {
     uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg',
   };
+  
   return (
+    
     <View style={styles.container}>
+
       <View style={styles.header}>
         <Image source={require('../assets/icon.png')} style={styles.logo} />
       </View>
+
+      <TextInput
+        placeholder="search food"
+        style={styles.input}
+        onChangeText={getFoodDetailsById}//geeft argument enteredText mee, denk aan de taskInputHandler uit de todo app.
+      />
+      
+      <FlatList
+        data={food}
+        keyExtractor={item => item.id}//gebruik imdb_id als key voor de flatlist
+        renderItem={({ item }) => (
+          <FoodItem
+            id={item.id}
+            title={item.title}
+            navigation={navigation}
+            onSelectFood={(selectedId) => { navigation.navigate('Details', { foodId: selectedId }) }}
+          />
+        )}
+      />
+
 
       <ScrollView style={styles.content}>
         <View>
