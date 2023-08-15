@@ -62,7 +62,7 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <Image source={require('../assets/foodgarage-logo.png')} style={styles.logo} />
+        <Image source={require('../assets/logo.png')} style={styles.logo} />
       </View>
 
       <TextInput
@@ -78,7 +78,7 @@ const HomeScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <FoodItems
             id={item.id}
-            title={item.title}
+            name={item.name}
             navigation={navigation}
             onSelectFood={(selectedId) => { navigation.navigate('Information', { foodId: selectedId }) }}
           />
