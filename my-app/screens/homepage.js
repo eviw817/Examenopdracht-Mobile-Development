@@ -62,7 +62,7 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <Image source={require('../assets/icon.png')} style={styles.logo} />
+        <Image source={require('../assets/foodgarage-logo.png')} style={styles.logo} />
       </View>
 
       <TextInput
