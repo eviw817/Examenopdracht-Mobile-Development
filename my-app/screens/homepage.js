@@ -27,7 +27,6 @@ const HomeScreen = ({ navigation }) => {
     }
   }
 
-
   useEffect(() => {
     getFoodDetailsById();//laad upcomming foods wanneer het scherm laadt
   }, []);
