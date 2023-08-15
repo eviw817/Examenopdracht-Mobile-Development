@@ -1,18 +1,22 @@
 import React from 'react';
-import { ScrollView, View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Button, StyleSheet } from 'react-native';
 
 import FoodDetails from '../components/foodDetails';
 
-const LikesScreen = ({ navigation }) => {
+const InformationScreen = ({ route, navigation }) => {
+
+  const { foodId } = route.params;
+
   return (
     <View style={styles.screen}>
-      <MovieDetails movieId={movieId} />
+      <FoodDetails foodId={foodId} />
       <Button
-        title="Go to Movies"
-        onPress={() => navigation.navigate('Movies')}
+        title="Go to Foods"
+        onPress={() => navigation.navigate('Food')}
       />
     </View>
   )
+};
 
 const styles = StyleSheet.create({
     container: {

@@ -10,7 +10,7 @@ const LikesScreen = ({ navigation }) => {
 
         <ScrollView style={styles.content}>
             <View>
-                <Text style={styles.item}>dtfyghjkljghnfg</Text>
+                <Text style={styles.item}>Je hebt nog niets geliked</Text>
             </View>
         </ScrollView>
 
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     },
     item: {
       margin: 20,
+      padding: 20,
       flexBasis: '82%',
       aspectRatio: 1,
       backgroundColor: '#ffffff',

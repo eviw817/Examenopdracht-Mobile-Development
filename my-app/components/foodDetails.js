@@ -8,7 +8,7 @@ const FoodDetails = props => {
 
   const getFoodDetailsById = async () => {
     try {
-      const url = encodeURI("https://tasty.p.rapidapi.com/recipes/list" + props.furnitureId + "/")
+      const url = encodeURI("https://tasty.p.rapidapi.com/feeds/list" + props.foodName + "/")
       const response = await fetch(url, {
         "method": "GET",
         "headers": {
@@ -29,13 +29,7 @@ const FoodDetails = props => {
 
   return (
     <ScrollView>
-      <Image
-        style={styles.foodPicture}
-        source={{
-          uri: foodDetails.banner,
-        }}
-      />
-      <Text style={styles.title}>{foodDetails.title}</Text>
+      <Text style={styles.name}>{foodDetails.name}</Text>
       <View style={styles.details}>
         <Text>{foodDetails.plot}</Text>
         <Text style={styles.release}>release: {foodDetails.release}</Text>
@@ -46,7 +40,7 @@ const FoodDetails = props => {
 }
 
 const styles = StyleSheet.create({
-  title: {
+  name: {
     margin: 16,
     fontSize: 24,
     textAlign: 'center',
@@ -56,7 +50,7 @@ const styles = StyleSheet.create({
     padding: 16,
     margin: 8,
   },
-  furniturePicture: {
+  foodPicture: {
     width: '100%',
     height: 450
   },

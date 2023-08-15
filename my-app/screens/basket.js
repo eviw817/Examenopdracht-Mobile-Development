@@ -5,12 +5,12 @@ const BasketScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
         <View style={styles.header}>
-            <Text style={styles.title}>Your Basket</Text>
+            <Text style={styles.title}>Winkelmand</Text>
         </View>
 
         <ScrollView style={styles.content}>
             <View>
-                <Text style={styles.item}>dtfyghjkljghnfg</Text>
+                <Text style={styles.item}>Je hebt nog niets in je winkelmand gestoken.</Text>
             </View>
         </ScrollView>
 
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     },
     item: {
       margin: 20,
+      padding: 20,
       flexBasis: '82%',
       aspectRatio: 1,
       backgroundColor: '#ffffff',
